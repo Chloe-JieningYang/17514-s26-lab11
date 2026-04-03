@@ -120,7 +120,7 @@ class App extends React.Component<Props, GameState> {
      * @see https://reactjs.org/docs/introducing-jsx.html
      */
     return (
-      <div>
+      <div id="app-container">
         <div id="instructions">{this.state.instructions}</div>
         <div id="board">
           {this.state.cells.map((cell, i) => this.createCell(cell, i))}

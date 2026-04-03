@@ -1,47 +1,104 @@
-#board {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px
-}
-
-.cell {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  height: 25vmin;
-  text-align: center;
-}
-
-#bottombar {
-  height: 5vh;
-}
-
-#instructions {
-  height: 5vh;
-  background-color: white;
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  border: 1px solid black;
-}
-
-#bottombar button {
-  width: 50%;
-  /* height: 100%; */
-  margin: 0;
-  padding: 0;
-  position: relative;
-  float: left;
-  font-size: 2vw
-}
-
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #1a1a2e;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.playable { background-color: red;}
+#app-container {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#instructions {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  padding: 14px 0;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background-color: #0f3460;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.cell {
+  background-color: #16213e;
+  border: none;
+  border-radius: 8px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.cell-x {
+  color: #e94560;
+}
+
+.cell-o {
+  color: #53d8fb;
+}
+
+.playable {
+  background-color: #1a1a40;
+  cursor: pointer;
+}
+
+.playable:hover {
+  background-color: #2a2a5a;
+  transform: scale(1.04);
+}
+
+#bottombar {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+#bottombar button {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#bottombar button:first-child {
+  background: linear-gradient(135deg, #e94560, #c23152);
+  color: white;
+}
+
+#bottombar button:first-child:hover {
+  background: linear-gradient(135deg, #ff6b81, #e94560);
+  transform: scale(1.03);
+}
+
+#bottombar button:last-child {
+  background: linear-gradient(135deg, #53d8fb, #3aa8d8);
+  color: #1a1a2e;
+}
+
+#bottombar button:last-child:hover {
+  background: linear-gradient(135deg, #7be3fc, #53d8fb);
+  transform: scale(1.03);
+}

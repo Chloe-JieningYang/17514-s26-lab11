@@ -5,14 +5,23 @@ import java.util.Arrays;
 public class GameState {
 
     private final Cell[] cells;
+    private final String instructions;
 
-    private GameState(Cell[] cells) {
+    private GameState(Cell[] cells, String instructions) {
         this.cells = cells;
+        this.instructions = instructions;
     }
 
     public static GameState forGame(Game game) {
         Cell[] cells = getCells(game);
-        return new GameState(cells);
+        Player winner = game.getWinner();
+        String instructions;
+        if (winner != null) {
+            instructions = winner == Player.PLAYER0 ? "X wins!" : "O wins!";
+        } else {
+            instructions = game.getPlayer() == Player.PLAYER0 ? "X's turn" : "O's turn";
+        }
+        return new GameState(cells, instructions);
     }
 
     public Cell[] getCells() {
@@ -26,8 +35,8 @@ public class GameState {
     @Override
     public String toString() {
         return """
-                { "cells": %s}
-                """.formatted(Arrays.toString(this.cells));
+                { "cells": %s, "instructions": "%s"}
+                """.formatted(Arrays.toString(this.cells), this.instructions);
     }
 
     private static Cell[] getCells(Game game) {

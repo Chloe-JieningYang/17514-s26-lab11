@@ -1,0 +1,30 @@
+# === IDE ===
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# === Maven (back-end) ===
+back-end/target/
+back-end/*.jar
+back-end/*.war
+
+# === Node.js (front-end) ===
+front-end/node_modules/
+front-end/build/
+front-end/.env
+front-end/.env.local
+front-end/.env.development.local
+front-end/.env.test.local
+front-end/.env.production.local
+front-end/npm-debug.log*
+front-end/yarn-debug.log*
+front-end/yarn-error.log*
+
+# === General ===
+*.log
+*.class
+*.tmp
